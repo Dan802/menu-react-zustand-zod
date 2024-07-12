@@ -1,15 +1,15 @@
 # React + TypeScript + Vite
 
-Vite 
-React
-Routes & Route from react-router-dom
-TS
-Zustand - Slices Pattern
-Zod
-useLocation from React
-theming on tailwind: custom classes
-headlessui/react/tailwind
-suspense and lazy for performance
+- Vite
+- React
+- TS
+- Routes & Route from react-router-dom
+- useLocation from React
+- Zustand - Slices Pattern - To use a global state
+- Zod to verify data and create schemas
+- theming on tailwind to create custom classes
+- headlessui/react/tailwind
+- suspense and lazy for performance from React
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
