@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 import { useAppStore } from "../stores/useAppStore"
 
@@ -8,6 +8,7 @@ export default function Header() {
   const fetchCategories = useAppStore((state) => state.fetchCategories)
   const searchRecipes = useAppStore((state) => state.searchRecipes)
   const categories = useAppStore((state) => state.categories)
+  const showNotification = useAppStore((state) => state.showNotification)
 
   useEffect( () => {
     fetchCategories()
@@ -32,7 +33,10 @@ export default function Header() {
     e.preventDefault()
 
     if(Object.values(searchFilters).includes('')){
-      console.log('all the fields are required')
+      showNotification({
+        text: 'All fields are required',
+        error: true
+      })
       return
     }
 
@@ -45,7 +49,9 @@ export default function Header() {
         <div className="mx-auto container px-5 py-16">
           <div className="flex justify-between items-center">
             <div>
-              <img src="/logo.svg" className="w-32" alt="logo" />
+              <Link to="/" >
+                <img src="/logo.svg" className="w-32" alt="logo" />
+              </Link>
             </div>
 
             <nav className="flex gap-4">

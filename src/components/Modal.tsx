@@ -8,6 +8,8 @@ export default function Modal() {
   const modal = useAppStore((state) => state.modal)
   const closeModal = useAppStore((state) => state.closeModal)
   const selectedRecipe = useAppStore((state) => state.selectedRecipe)
+  const handleClickFavorite = useAppStore((state) => state.handleClickFavorite)
+  const favoriteExists = useAppStore((state) => state.favoriteExists)
 
   const renderIngredients = () => {
 
@@ -72,7 +74,7 @@ export default function Modal() {
                   />
 
                   <DialogTitle as="h3" className="text-gray-900 text-2xl font-extrabold my-5">
-                    Ingredientes y Cantidades
+                    Ingredients and Measures
                   </DialogTitle>
 
                   {renderIngredients()}
@@ -84,6 +86,23 @@ export default function Modal() {
                   <p className='text-lg'>
                     {selectedRecipe.drinks && selectedRecipe.drinks[0].strInstructions}
                   </p>
+
+                  <div className='mt-5 flex justify-between gap-4'>
+                    <button
+                      className='w-full  rounded bg-gray-600 p-3 font-bold uppercase text-white shadow hover:bg-gray-500'
+                      onClick={closeModal}
+                    >
+                      Close
+                    </button>
+                    <button
+                      className='w-full  rounded bg-orange-600 p-3 font-bold uppercase text-white shadow hover:bg-gray-500'
+                      onClick={() => handleClickFavorite(selectedRecipe.drinks[0])}
+                    >
+                      {selectedRecipe.drinks && 
+                        favoriteExists(selectedRecipe.drinks[0].idDrink) ? 'Remove from favorites' : 'Add to Favorites'
+                      }
+                    </button>
+                  </div>
                 </DialogPanel>
               </TransitionChild>
             </div>

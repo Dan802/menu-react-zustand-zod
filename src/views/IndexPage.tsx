@@ -22,7 +22,7 @@ export default function IndexPage() {
           ))}
         </div>
       ) : (
-        <p className="m-10 text-center text-2xl">Use the form to search new recipes</p>
+        <p className="m-10 text-center text-2xl">Use the form to search for new recipes</p>
       )}
 
     </>

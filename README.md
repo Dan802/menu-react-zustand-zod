@@ -9,6 +9,7 @@ Zod
 useLocation from React
 theming on tailwind: custom classes
 headlessui/react/tailwind
+suspense and lazy for performance
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
